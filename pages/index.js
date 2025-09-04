@@ -804,7 +804,7 @@ const [selectedImagePreview, setSelectedImagePreview] = useState(null); // just 
                     </svg>
                     Click anywhere on the text to edit.
                   </div>
-                  <div className='max-h-[240px] sm:max-h-[300px] lg:max-h-[400px] overflow-auto cool-scrollbar mb-2'>
+                  <div className='max-h-[240px] sm:max-h-[300px] lg:max-h-[300px] overflow-auto cool-scrollbar mb-2'>
                     <AutoResizingTextarea
                       value={output}
                       onChange={e => setOriginalOutput(e.target.value)}
@@ -812,7 +812,7 @@ const [selectedImagePreview, setSelectedImagePreview] = useState(null); // just 
                     />
                   </div>
                   {user ? (
-                  <div className="flex justify-left origin-center mt-1 opacity-80 transition-all duration-300 hover:opacity-100 items-center gap-2 relative">
+                  <div className="flex justify-left origin-center opacity-80 transition-all duration-300 hover:opacity-100 items-center gap-2 relative">
                     <label className="cursor-pointer flex flex-col items-center relative group">
                       <img
                         src="/images/photo.png"

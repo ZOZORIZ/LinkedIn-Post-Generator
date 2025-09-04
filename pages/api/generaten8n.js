@@ -6,14 +6,14 @@ export default async function handler(req, res) {
   const { input, goal, tone, audience, achievement, length } = req.body;
 
   try {
-    const response = await fetch("http://localhost:5678/webhook/8c995a0c-2a25-4188-a12e-f19122ac87de", {
+    const response = await fetch("http://localhost:5678/webhook/47275b9d-2402-4e55-b967-d40dee794c34", {
       method: "POST",
       headers: {
         "password": `password`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "llama3-70b-8192",
+        model: "llama-3.3-70b-versatile",
         messages: [
           {
             role: "system",
@@ -33,6 +33,7 @@ Write a LinkedIn post based on the following:
 
 **Formatting Rules:**
 - Add a short, catchy **title** with 1–2 emojis and use emojis for every sub title 
+- Add Proper Line Breaks and Ensure Readability
 - Use **bold** formatting to highlight achievements or key points
 - If institution names are mentioned, add their location (e.g., Saintgits College → Kottayam, Kerala)
 - Add 5–10 relevant **hashtags** at the end based on topic — avoid using country names
@@ -46,7 +47,7 @@ Write a LinkedIn post based on the following:
 - goofy → playful, light humor
 - professional → formal, polished, no slang
 
-Avoid placeholders, sentences like heres the post or output, incomplete sentences, or unnatural AI-sounding text.`
+Avoid placeholders, incomplete sentences, or unnatural AI-sounding text.if the user has not provided any information, return "blud try real inputs!" or if the user has provided invalid or random information, return "Invalid information provided" and dont use hashtages in such cases `
           }
         ]
       })
@@ -63,7 +64,7 @@ Avoid placeholders, sentences like heres the post or output, incomplete sentence
       console.error('Error from upstream API:', errorText);
       return res.status(response.status).json({ error: errorText });
     }
-     const generatedText = data?.[0]?.output || "Failed to generate"; 
+     const generatedText = data?.[0]?.text || "Failed to generate"; 
 
     res.status(200).json({ output: generatedText });
   } catch (error) {

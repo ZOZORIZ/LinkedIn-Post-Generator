@@ -84,7 +84,7 @@ export default async function handler(req, res) {
     ]);
 
     // ✅ 4️⃣ Redirect to your hero section
-    res.redirect('/#hero');
+    res.redirect('/');
 
   } catch (err) {
     console.error('Token exchange error:', err);
