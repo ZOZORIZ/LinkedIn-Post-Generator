@@ -728,7 +728,7 @@ const [selectedImagePreview, setSelectedImagePreview] = useState(null); // just 
                         <div className='absolute bottom-full mb-3 bg-white text-black text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap'>
                           Click To Format
                         </div>
-                        <img onClick={() => setUseUnicode(!useUnicode)} className='h-full lg:h-7 cursor-pointer h-7 hover:scale-110' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3ElEQVR4nO3ZO2sUURgG4OB668RGQZSAjZdGgpWNlWIhwSoWgliqpLH2hn9BsRRjYyOIUQl4AU2hIngDb92ipSQgiiDeyCMDIwSL7BnmzMzZYV742nf3KZbz7TkjI126dCkVbMJ13I8wd3ENU7iASezFmjogR1WfXzn0MJZVBTmu3rzBrjZAsvzARBsgWX5jrA2QLM/QawMky3jdkA/oLzFzWFA8U3VD1gZ09bAFp/ElsPd1cpD/erfja0DvfNKQvPtcQO8CVqQO2R0I6aUO2RHQO1caUQNkf0DvvWGAXAronUwaku1S+DOgcz7ail8AMobNA2YrDuJmYOehKIiCkNg5Gw3RIORMVESDkO84FW3zbRDyL9NY1QZIlst1Q6bzG5Kl5gZm8Vmx7EvyHMluSrAn/wcYkpdJQhZ1r8SdwP6dyULy/tGAE778uVI1JP+MpwH9t4YBcrXy34l6IFcC+vvDAHkQ0P8+aQjW55fYg/IwWUi2fmAmsP9icpAcMI7nwnOgLshswEPPY3zET8XyqfTymMDSmOVEKUQikCdYPuyQPjaURjQMeYGNURANQb7ld8KroyFyyLGaAO9wEuuiAhZBtuHVgEecIvMWj3Ab53Eke2Ko5Mt36dKlffkLtiMPC6r8bNMAAAAASUVORK5CYII=" alt="bold" />
+                        <img onClick={() => { setOriginalOutput(deUnicode(output)); setUseUnicode(!useUnicode); }} className='h-full lg:h-7 cursor-pointer h-7 hover:scale-110' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3ElEQVR4nO3ZO2sUURgG4OB668RGQZSAjZdGgpWNlWIhwSoWgliqpLH2hn9BsRRjYyOIUQl4AU2hIngDb92ipSQgiiDeyCMDIwSL7BnmzMzZYV742nf3KZbz7TkjI126dCkVbMJ13I8wd3ENU7iASezFmjogR1WfXzn0MJZVBTmu3rzBrjZAsvzARBsgWX5jrA2QLM/QawMky3jdkA/oLzFzWFA8U3VD1gZ09bAFp/ElsPd1cpD/erfja0DvfNKQvPtcQO8CVqQO2R0I6aUO2RHQO1caUQNkf0DvvWGAXAronUwaku1S+DOgcz7ail8AMobNA2YrDuJmYOehKIiCkNg5Gw3RIORMVESDkO84FW3zbRDyL9NY1QZIlst1Q6bzG5Kl5gZm8Vmx7EvyHMluSrAn/wcYkpdJQhZ1r8SdwP6dyULy/tGAE778uVI1JP+MpwH9t4YBcrXy34l6IFcC+vvDAHkQ0P8+aQjW55fYg/IwWUi2fmAmsP9icpAcMI7nwnOgLshswEPPY3zET8XyqfTymMDSmOVEKUQikCdYPuyQPjaURjQMeYGNURANQb7ld8KroyFyyLGaAO9wEuuiAhZBtuHVgEecIvMWj3Ab53Eke2Ko5Mt36dKlffkLtiMPC6r8bNMAAAAASUVORK5CYII=" alt="bold" />
                       </div>
                     </div>
                   </div>
@@ -807,7 +807,7 @@ const [selectedImagePreview, setSelectedImagePreview] = useState(null); // just 
                   <div className='max-h-[210px] sm:max-h-[300px] lg:max-h-[300px] overflow-auto cool-scrollbar mb-2'>
                     <AutoResizingTextarea
                       value={output}
-                      onChange={e => setOriginalOutput(e.target.value)}
+                      onChange={e => setOutput(e.target.value)}
                       className="flex text-white text-sm lg:text-[20px] w-full outline-none bg-transparent whitespace-pre-wrap"
                     />
                   </div>
