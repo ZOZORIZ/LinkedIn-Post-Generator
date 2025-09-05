@@ -694,7 +694,7 @@ const [selectedImagePreview, setSelectedImagePreview] = useState(null); // just 
 
             {output && (
               <section ref={outputSectionRef} className="min-h-screen flex flex-col justify-center p-4 sm:p-8" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
-                <div className="smooth-transform w-[clamp(330px,800px,80vw)] bg-[rgba(10,12,27,0.7)] rounded-[18px] p-5 mt-0 sm:mt-20 lg:p-8 backdrop-blur-md border-2 border-[#7f8cff] relative max-h-[370px] sm:max-h-[60vh]" style={{ transformStyle: 'preserve-3d', perspective: '1000px'}}
+                <div className="smooth-transform w-[clamp(330px,800px,80vw)] bg-[rgba(10,12,27,0.7)] rounded-[18px] p-5 mt-0 sm:mt-20 lg:p-8 backdrop-blur-md border-2 border-[#7f8cff] relative -mt-20 max-h-[380px] sm:max-h-[60vh]" style={{ transformStyle: 'preserve-3d', perspective: '1000px'}}
                 onMouseMove={(e) => {
                   const button = e.currentTarget;
                   const rect = button.getBoundingClientRect();
@@ -728,7 +728,7 @@ const [selectedImagePreview, setSelectedImagePreview] = useState(null); // just 
                         <div className='absolute bottom-full mb-3 bg-white text-black text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap'>
                           Click To Format
                         </div>
-                        <img onClick={() => setUseUnicode(!useUnicode)} className='cursor-pointer h-7 hover:scale-110' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3ElEQVR4nO3ZO2sUURgG4OB668RGQZSAjZdGgpWNlWIhwSoWgliqpLH2hn9BsRRjYyOIUQl4AU2hIngDb92ipSQgiiDeyCMDIwSL7BnmzMzZYV742nf3KZbz7TkjI126dCkVbMJ13I8wd3ENU7iASezFmjogR1WfXzn0MJZVBTmu3rzBrjZAsvzARBsgWX5jrA2QLM/QawMky3jdkA/oLzFzWFA8U3VD1gZ09bAFp/ElsPd1cpD/erfja0DvfNKQvPtcQO8CVqQO2R0I6aUO2RHQO1caUQNkf0DvvWGAXAronUwaku1S+DOgcz7ail8AMobNA2YrDuJmYOehKIiCkNg5Gw3RIORMVESDkO84FW3zbRDyL9NY1QZIlst1Q6bzG5Kl5gZm8Vmx7EvyHMluSrAn/wcYkpdJQhZ1r8SdwP6dyULy/tGAE778uVI1JP+MpwH9t4YBcrXy34l6IFcC+vvDAHkQ0P8+aQjW55fYg/IwWUi2fmAmsP9icpAcMI7nwnOgLshswEPPY3zET8XyqfTymMDSmOVEKUQikCdYPuyQPjaURjQMeYGNURANQb7ld8KroyFyyLGaAO9wEuuiAhZBtuHVgEecIvMWj3Ab53Eke2Ko5Mt36dKlffkLtiMPC6r8bNMAAAAASUVORK5CYII=" alt="bold" />
+                        <img onClick={() => setUseUnicode(!useUnicode)} className='h-full lg:h-7 cursor-pointer h-7 hover:scale-110' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3ElEQVR4nO3ZO2sUURgG4OB668RGQZSAjZdGgpWNlWIhwSoWgliqpLH2hn9BsRRjYyOIUQl4AU2hIngDb92ipSQgiiDeyCMDIwSL7BnmzMzZYV742nf3KZbz7TkjI126dCkVbMJ13I8wd3ENU7iASezFmjogR1WfXzn0MJZVBTmu3rzBrjZAsvzARBsgWX5jrA2QLM/QawMky3jdkA/oLzFzWFA8U3VD1gZ09bAFp/ElsPd1cpD/erfja0DvfNKQvPtcQO8CVqQO2R0I6aUO2RHQO1caUQNkf0DvvWGAXAronUwaku1S+DOgcz7ail8AMobNA2YrDuJmYOehKIiCkNg5Gw3RIORMVESDkO84FW3zbRDyL9NY1QZIlst1Q6bzG5Kl5gZm8Vmx7EvyHMluSrAn/wcYkpdJQhZ1r8SdwP6dyULy/tGAE778uVI1JP+MpwH9t4YBcrXy34l6IFcC+vvDAHkQ0P8+aQjW55fYg/IwWUi2fmAmsP9icpAcMI7nwnOgLshswEPPY3zET8XyqfTymMDSmOVEKUQikCdYPuyQPjaURjQMeYGNURANQb7ld8KroyFyyLGaAO9wEuuiAhZBtuHVgEecIvMWj3Ab53Eke2Ko5Mt36dKlffkLtiMPC6r8bNMAAAAASUVORK5CYII=" alt="bold" />
                       </div>
                     </div>
                   </div>
@@ -804,7 +804,7 @@ const [selectedImagePreview, setSelectedImagePreview] = useState(null); // just 
                     </svg>
                     Click anywhere on the text to edit.
                   </div>
-                  <div className='max-h-[240px] sm:max-h-[300px] lg:max-h-[300px] overflow-auto cool-scrollbar mb-2'>
+                  <div className='max-h-[210px] sm:max-h-[300px] lg:max-h-[300px] overflow-auto cool-scrollbar mb-2'>
                     <AutoResizingTextarea
                       value={output}
                       onChange={e => setOriginalOutput(e.target.value)}
